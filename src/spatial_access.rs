@@ -32,6 +32,7 @@ pub trait UpdateSpatialAccess: SpatialAccess {
     /// Remove the point by entity from the underlying datastructure.
     fn remove_entity(&mut self, entity: Entity) -> bool;
     /// Clear the underlying datastructure, removing all points it contains.
+    #[allow(dead_code)]
     fn clear(&mut self);
 }
 

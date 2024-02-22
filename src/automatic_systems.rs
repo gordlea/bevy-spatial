@@ -7,7 +7,7 @@ use crate::{
 };
 
 use bevy::{
-    ecs::schedule::{ScheduleLabel, SystemSet},
+    ecs::schedule::ScheduleLabel,
     prelude::*,
 };
 
@@ -47,7 +47,7 @@ where
                     changed,
                 )
             }),
-            removed.iter(),
+            removed.read(),
         );
     }
 
@@ -79,7 +79,7 @@ where
                     changed,
                 )
             }),
-            removed.iter(),
+            removed.read(),
         );
     }
 

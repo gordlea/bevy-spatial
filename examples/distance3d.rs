@@ -41,9 +41,9 @@ fn setup(
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
     let handles = MaterialHandles {
-        orange_red: materials.add(Color::ORANGE_RED.into()),
-        black: materials.add(Color::BLACK.into()),
-        blue: materials.add(Color::BLUE.into()),
+        orange_red: materials.add(Color::ORANGE_RED),
+        black: materials.add(Color::BLACK),
+        blue: materials.add(Color::BLUE),
     };
     commands.insert_resource(handles.clone());
     commands.insert_resource(AmbientLight {
@@ -56,7 +56,7 @@ fn setup(
     });
     commands
         .spawn(PbrBundle {
-            mesh: meshes.add(Mesh::from(shape::Cube { size: 10.0 })),
+            mesh: meshes.add(Mesh::from(Cuboid::from_size(Vec3::splat(10.0)))),
             material: handles.blue.clone(),
             transform: Transform::from_xyz(0.0, 0.5, 0.0),
             ..default()
@@ -68,7 +68,7 @@ fn setup(
             for z in -6..6 {
                 commands
                     .spawn(PbrBundle {
-                        mesh: meshes.add(Mesh::from(shape::Cube { size: 4.0 })),
+                        mesh: meshes.add(Mesh::from(Cuboid::from_size(Vec3::splat(4.0)))),
                         material: handles.orange_red.clone(),
                         transform: Transform::from_xyz(
                             (x * 15) as f32,

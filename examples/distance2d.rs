@@ -2,7 +2,6 @@ use std::time::Duration;
 
 use bevy::{
     diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin},
-    math::Vec3Swizzles,
     prelude::*,
     window::PrimaryWindow,
 };
@@ -111,7 +110,7 @@ fn mouse(
     mouse: Res<Mouse2D>,
     treeaccess: Res<NNTree>,
     mut query: Query<&mut Transform, With<Cursor>>,
-    ms_buttons: Res<Input<MouseButton>>,
+    ms_buttons: Res<ButtonInput<MouseButton>>,
 ) {
     let use_mouse = ms_buttons.pressed(MouseButton::Left);
 
